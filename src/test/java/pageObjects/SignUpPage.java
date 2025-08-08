@@ -14,7 +14,7 @@ public class SignUpPage {
         this.driver = driver;
     }
 
-    // Locators
+
     By lnkCreateAccount = By.linkText("Create an Account");
     By txtFirstName = By.id("firstname");
     By txtLastName = By.id("lastname");
@@ -27,7 +27,7 @@ public class SignUpPage {
 
     By errorMessages = By.cssSelector(".mage-error, .message-error");
 
-    // Actions
+
     public void clickCreateAccountLink() {
         driver.findElement(lnkCreateAccount).click();
     }
@@ -63,17 +63,17 @@ public class SignUpPage {
     public void clickSignOutLink() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-        // Step 1: Wait for and click on the Welcome dropdown
+   
         WebElement welcomeDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Welcome')]")));
         welcomeDropdown.click();
 
-        // Step 2: Wait for the Sign Out link to appear
+
         WebElement signOutLink = wait.until(ExpectedConditions.elementToBeClickable(lnkSignOut));
         signOutLink.click();
     }
 
 
-    // ✅ Waits for either success or error
+
     public void waitForSignupResult() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.or(
@@ -82,12 +82,12 @@ public class SignUpPage {
         ));
     }
 
-    // ✅ Returns true if signup succeeded (page title matched)
+    
     public boolean isSignupSuccessful() {
         return driver.getTitle().equals("My Account");
     }
 
-    // ✅ Returns error message(s) if signup failed
+    
     public List<WebElement> getSignupErrors() {
         return driver.findElements(errorMessages);
     }
