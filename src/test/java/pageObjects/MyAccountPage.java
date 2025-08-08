@@ -24,15 +24,13 @@ public class MyAccountPage {
         PageFactory.initElements(driver, this);
     }
 
-    // Locator for "My Account" heading
+
     @FindBy(xpath = "//*[contains(text(),'My Account') or contains(text(),'Welcome')]")
     WebElement msgHeading;
 
-    // Locator for Logout link
-    @FindBy(xpath = "//a[contains(@href,'logout') and text()='Logout']")
-    WebElement lnkLogout;
 
-    // Method to check if 'My Account' page exists
+    @FindBy(xpath = "//a[contains(@href,'logout') and text()='Logout']")
+    WebElement lnkLogout; 
     public boolean isMyAccountPageExists() {
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -43,9 +41,6 @@ public class MyAccountPage {
         }
     }
 
-
-
-    // Method to click Logout link
     public void clickLogout() {
         try {
             wait.until(ExpectedConditions.elementToBeClickable(lnkLogout));  // Wait until element is clickable
@@ -56,7 +51,6 @@ public class MyAccountPage {
         }
     }
 
-    // Adding implicit wait as a fallback, if elements load slowly
     public void setImplicitWait() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
