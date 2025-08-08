@@ -38,7 +38,7 @@ public class BaseClass {
 	        p = new Properties();
 	        p.load(fis);
 
-	        // Browser setup
+	    
 	        switch (br.toLowerCase()) {
 	            case "chrome":driver = new ChromeDriver();break;
 	            case "edge": driver = new EdgeDriver();break;
@@ -60,7 +60,7 @@ public class BaseClass {
 	        }
 	    }
 	    
-	    // Utility methods
+	
 	    public String randomString() {
 	        return RandomStringUtils.randomAlphabetic(5);
 	    }
