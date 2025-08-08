@@ -26,7 +26,7 @@ public class TC_SignUpData extends BaseClass {
     @Test(dataProvider = "LoginData", dataProviderClass = DataProviders.class, groups = "Datadriven")
     public void verify_signupDDT(String firstName, String lastName, String email, String password, String confirmPassword) {
 
-        logger.info("🚀 Starting TC_SignUpData test for: " + email);
+        logger.info(" Starting TC_SignUpData test for: " + email);
 
         try {
             // Step 1: Generate unique email to avoid duplicates
@@ -110,11 +110,11 @@ public class TC_SignUpData extends BaseClass {
             }
 
         } catch (Exception e) {
-            logger.error("❌ Exception during signup test: " + e.getMessage(), e);
+            logger.error(" Exception during signup test: " + e.getMessage(), e);
             Assert.fail("Test failed due to exception: " + e.getMessage());
         }
 
-        logger.info("🏁 Finished TC_SignUpData test for: " + email);
+        logger.info(" Finished TC_SignUpData test for: " + email);
     }
 
     private void captureErrorDetails() {
@@ -125,14 +125,14 @@ public class TC_SignUpData extends BaseClass {
             List<WebElement> errors = driver.findElements(By.cssSelector(".alert-danger, .error, .validation-advice"));
             if (!errors.isEmpty()) {
                 for (WebElement error : errors) {
-                    logger.warn("❗ Error Message: " + error.getText());
+                    logger.warn(" Error Message: " + error.getText());
                 }
             } else {
-                logger.warn("⚠️ No error messages found on UI, but signup failed.");
+                logger.warn(" No error messages found on UI, but signup failed.");
             }
 
         } catch (Exception e) {
-            logger.error("⚠️ Exception while capturing error details: " + e.getMessage());
+            logger.error(" Exception while capturing error details: " + e.getMessage());
         }
     }
 
@@ -147,9 +147,9 @@ public class TC_SignUpData extends BaseClass {
                 ExpectedConditions.elementToBeClickable(By.linkText("Sign Out")));
             signOutLink.click();
 
-            logger.info("⚠️ Logged out after unexpected signup success (password mismatch case)");
+            logger.info(" Logged out after unexpected signup success (password mismatch case)");
         } catch (Exception e) {
-            logger.error("⚠️ Failed to logout after unexpected signup success: " + e.getMessage());
+            logger.error("Failed to logout after unexpected signup success: " + e.getMessage());
         }
     }
 }
