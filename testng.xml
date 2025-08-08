@@ -1,0 +1,10 @@
+<suite name="Test Suite">
+  <parameter name="os" value="windows" />
+  <parameter name="browser" value="chrome" />
+
+  <test name="SignUp Test">
+    <classes>
+      <class name="testCases.TC_SignUpData" />
+    </classes>
+  </test>
+</suite>
