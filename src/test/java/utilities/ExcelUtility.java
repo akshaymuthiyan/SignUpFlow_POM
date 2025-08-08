@@ -68,7 +68,7 @@ public class ExcelUtility {
 		DataFormatter formatter = new DataFormatter();
 		String data;
 		try {
-			data=formatter.formatCellValue(cell);	//return the formatted value of a cell as a string regardless
+			data=formatter.formatCellValue(cell);	
 		}
 		catch(Exception e)
 		{
@@ -92,12 +92,12 @@ public class ExcelUtility {
 		fi=new FileInputStream(path);
 		workbook=new XSSFWorkbook(fi);
 
-		if(workbook.getSheetIndex(sheetName)==-1) { //If sheet not exists then create new sheet
+		if(workbook.getSheetIndex(sheetName)==-1) { 
 			workbook.createSheet(sheetName);
 		}
 		sheet=workbook.getSheet(sheetName);
 
-		if(sheet.getRow(rownum)==null) { //if row not exists then create new row
+		if(sheet.getRow(rownum)==null) { 
 			sheet.createRow(rownum);
 		}
 		row=sheet.getRow(rownum);
