@@ -111,25 +111,4 @@ public class ExcelUtility {
 		fo.close();
 	}
 
-	public void fillGreenColor(String sheetName,int rownum, int colnum) throws IOException
-	{
-		fi=new FileInputStream(path);
-		workbook=new XSSFWorkbook(fi);
-		sheet=workbook.getSheet(sheetName);
-
-		row=sheet.getRow(rownum);
-		cell=row.getCell(colnum);
-
-		style=workbook.createCellStyle();
-
-		style.setFillBackgroundColor(IndexedColors.GREEN.getIndex());
-		style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-
-		cell.setCellStyle(style);
-		workbook.write(fo);
-		workbook.close();
-		fi.close();
-		fo.close();
-	}
-
 }
